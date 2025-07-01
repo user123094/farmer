@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фермерские бройлеры - Свежее мясо с доставкой по Алматы</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/image/loo.png?height=50&width=50" alt="Логотип фермы">
+                    <span>ЭкоФерма KZ</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="active">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <div class="header-phone">
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Свежие фермерские бройлеры</h1>
+                    <p>Выращиваем натуральных бройлеров на собственном корме. Доставка по Алматы в день заказа.</p>
+                    <div class="hero-features">
+                        <div class="feature">
+                            <span class="feature-icon">🌱</span>
+                            <span>Натуральный корм</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🚚</span>
+                            <span>Быстрая доставка</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✅</span>
+                            <span>Свежесть гарантирована</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">💰</span>
+                            <span>Лучшие цены</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="openOrderModal()">Заказать сейчас</button>
+                        <a href="https://wa.me/77771234567" class="btn btn-whatsapp">
+                            <span>📱</span> WhatsApp
+                        </a>
+                        <a href="catalog.html" class="btn btn-secondary">Посмотреть каталог</a>
+                    </div>
+                    
+                    <!-- Quick Calculator -->
+                    <div class="hero-calculator">
+                        <h3>Быстрый расчет стоимости</h3>
+                        <div class="quick-calc">
+                            <select id="heroProductSelect">
+                                <option value="1750">Живые бройлеры - 1750 ₸/кг</option>
+                                <option value="1900">Тушки - 1900 ₸/кг</option>
+                                <option value="2000">Разделанные части - 2000 ₸/кг</option>
+                            </select>
+                            <input type="number" id="heroWeightInput" placeholder="Вес в кг" min="1" step="0.5">
+                            <div class="calc-result">
+                                <span>Итого: <strong id="heroTotalPrice">0 ₸</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/image/broiler.jpg?height=200&width=300" alt="Фермерские бройлеры">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>Почему выбирают нас</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Курятник">
+                    <h3>Современный курятник</h3>
+                    <p>Просторные условия содержания с естественным освещением и вентиляцией. Соблюдаем все санитарные нормы.</p>
+                </div>
+                <div class="about-item">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Натуральный корм">
+                    <h3>Качественный корм</h3>
+                    <p>Используем только проверенные корма без антибиотиков и гормонов роста. Натуральное зерно и витамины.</p>
+                </div>
+                <div class="about-item">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Доставка">
+                    <h3>Свежая доставка</h3>
+                    <p>Доставляем в день забоя по всему Алматы. Гарантируем максимальную свежесть и качество продукта.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Довольных клиентов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Года на рынке</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Прием заказов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Гарантия качества</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Готовы сделать заказ?</h2>
+                <p>Свяжитесь с нами любым удобным способом или оформите заказ онлайн</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large" onclick="openOrderModal()">Заказать сейчас</button>
+                    <a href="tel:+77771234567" class="btn btn-outline btn-large">Позвонить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=40&width=40" alt="Логотип">
+                        <span>ЭкоФерма KZ</span>
+                    </div>
+                    <p>Свежие фермерские бройлеры с доставкой по Алматы</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                    <a href="https://wa.me/77771234567" class="whatsapp-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ЭкоФерма KZ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2>Оформить заказ</h2>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Ваше имя *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Телефон *</label>
+                        <input type="tel" id="customerPhone" required placeholder="+7 (777) 123-45-67">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productType">Тип продукта *</label>
+                    <select id="productType" required>
+                        <option value="">Выберите продукт</option>
+                        <option value="Живые бройлеры" data-price="1750">Живые бройлеры - 1750 ₸/кг</option>
+                        <option value="Тушки бройлеров" data-price="1900">Тушки - 1900 ₸/кг</option>
+                        <option value="Разделанные части" data-price="2000">Разделанные части - 2000 ₸/кг</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Количество (кг) *</label>
+                        <input type="number" id="quantity" min="3" step="0.5" required>
+                        <small>Минимальный заказ: 3 кг</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderTotal">Стоимость</label>
+                        <input type="text" id="orderTotal" readonly class="total-field">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deliveryType">Способ получения *</label>
+                    <select id="deliveryType" required>
+                        <option value="">Выберите способ</option>
+                        <option value="delivery">Доставка (+1000 ₸)</option>
+                        <option value="pickup">Самовывоз (бесплатно)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="addressGroup" style="display: none;">
+                    <label for="deliveryAddress">Адрес доставки *</label>
+                    <textarea id="deliveryAddress" rows="2" placeholder="Укажите точный адрес доставки"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Способ оплаты *</label>
+                    <select id="paymentMethod" required>
+                        <option value="">Выберите способ оплаты</option>
+                        <option value="cash">Наличными при получении</option>
+                        <option value="card">Картой при получении</option>
+                        <option value="kaspi">Kaspi Pay</option>
+                        <option value="transfer">Банковский перевод</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="orderNotes">Комментарий к заказу</label>
+                    <textarea id="orderNotes" rows="2" placeholder="Дополнительные пожелания или вопросы"></textarea>
+                </div>
+                
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Стоимость товара:</span>
+                        <span id="productCost">0 ₸</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Доставка:</span>
+                        <span id="deliveryCost">0 ₸</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Итого к оплате:</span>
+                        <span id="finalTotal">0 ₸</span>
+                    </div>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary btn-large">Отправить заказ</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

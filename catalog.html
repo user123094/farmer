@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Фермерские бройлеры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/placeholder.svg?height=50&width=50" alt="Логотип фермы">
+                    <span>ЭкоФерма KZ</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html" class="active">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <div class="header-phone">
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Каталог продукции</h1>
+            <p>Свежие фермерские бройлеры высшего качества</p>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog-page">
+        <div class="container">
+            <!-- Filter Section -->
+            <div class="catalog-filters">
+                <div class="filter-group">
+                    <label for="sortSelect">Сортировать по:</label>
+                    <select id="sortSelect">
+                        <option value="default">По умолчанию</option>
+                        <option value="price-low">Цена: по возрастанию</option>
+                        <option value="price-high">Цена: по убыванию</option>
+                        <option value="name">По названию</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="availabilityFilter">Наличие:</label>
+                    <select id="availabilityFilter">
+                        <option value="all">Все товары</option>
+                        <option value="available">В наличии</option>
+                        <option value="order">Под заказ</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="catalog-grid">
+                <div class="product-card" data-availability="available" data-price="1750" data-name="Живые бройлеры">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Живые бройлеры" onclick="openImageModal(this.src)">
+                        <span class="product-badge available">В наличии</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Живые бройлеры</h3>
+                        <div class="product-details">
+                            <p><strong>Вес:</strong> 2.5-3.5 кг</p>
+                            <p><strong>Возраст:</strong> 45-50 дней</p>
+                            <p><strong>Порода:</strong> Кобб 500</p>
+                            <p><strong>Корм:</strong> Натуральное зерно</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">1750 ₸/кг</span>
+                            <span class="price-per-piece">от 4375 ₸/голова</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Живые бройлеры', 1750)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Живые бройлеры', 1750)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-availability="available" data-price="1900" data-name="Тушки бройлеров">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Тушки бройлеров" onclick="openImageModal(this.src)">
+                        <span class="product-badge available">В наличии</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Тушки (потрошеные)</h3>
+                        <div class="product-details">
+                            <p><strong>Вес:</strong> 2-3 кг</p>
+                            <p><strong>Обработка:</strong> Потрошеные</p>
+                            <p><strong>Состояние:</strong> Свежезабитые</p>
+                            <p><strong>Упаковка:</strong> Вакуумная</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">1900 ₸/кг</span>
+                            <span class="price-per-piece">от 3800 ₸/тушка</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Тушки бройлеров', 1900)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Тушки бройлеров', 1900)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-availability="order" data-price="2000" data-name="Разделанные части">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Разделанные части" onclick="openImageModal(this.src)">
+                        <span class="product-badge order">Под заказ</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Разделанные части</h3>
+                        <div class="product-details">
+                            <p><strong>Части:</strong> Грудка, бедра, крылья</p>
+                            <p><strong>Разделка:</strong> По желанию клиента</p>
+                            <p><strong>Упаковка:</strong> Раздельная</p>
+                            <p><strong>Заказ:</strong> За 1 день</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">2000 ₸/кг</span>
+                            <span class="price-per-piece">от 500 ₸/часть</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Разделанные части', 2000)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Разделанные части', 2000)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-availability="available" data-price="2200" data-name="Филе грудки">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Филе грудки" onclick="openImageModal(this.src)">
+                        <span class="product-badge available">В наличии</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Филе грудки</h3>
+                        <div class="product-details">
+                            <p><strong>Вес:</strong> 300-500 г/шт</p>
+                            <p><strong>Обработка:</strong> Без кости и кожи</p>
+                            <p><strong>Качество:</strong> Премиум</p>
+                            <p><strong>Упаковка:</strong> Охлажденное</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">2200 ₸/кг</span>
+                            <span class="price-per-piece">от 880 ₸/филе</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Филе грудки', 2200)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Филе грудки', 2200)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-availability="available" data-price="1600" data-name="Бедра и голени">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Бедра и голени" onclick="openImageModal(this.src)">
+                        <span class="product-badge available">В наличии</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Бедра и голени</h3>
+                        <div class="product-details">
+                            <p><strong>Вес:</strong> 200-300 г/шт</p>
+                            <p><strong>Состав:</strong> Бедро + голень</p>
+                            <p><strong>Обработка:</strong> С кожей</p>
+                            <p><strong>Идеально:</strong> Для жарки, тушения</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">1600 ₸/кг</span>
+                            <span class="price-per-piece">от 400 ₸/шт</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Бедра и голени', 1600)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Бедра и голени', 1600)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-availability="available" data-price="1200" data-name="Крылья">
+                    <div class="product-image">
+                        <img src="/placeholder.svg?height=250&width=300" alt="Крылья" onclick="openImageModal(this.src)">
+                        <span class="product-badge available">В наличии</span>
+                        <div class="product-overlay">
+                            <button class="btn btn-sm" onclick="openImageModal('/placeholder.svg?height=250&width=300')">Увеличить</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Крылья</h3>
+                        <div class="product-details">
+                            <p><strong>Вес:</strong> 80-120 г/шт</p>
+                            <p><strong>Части:</strong> Целые крылья</p>
+                            <p><strong>Обработка:</strong> Свежие</p>
+                            <p><strong>Идеально:</strong> Для гриля, запекания</p>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">1200 ₸/кг</span>
+                            <span class="price-per-piece">от 120 ₸/шт</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToOrder('Крылья', 1200)">Заказать</button>
+                            <button class="btn btn-outline" onclick="addToCalculator('Крылья', 1200)">В калькулятор</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Calculator -->
+            <div class="advanced-calculator">
+                <h2>Калькулятор стоимости заказа</h2>
+                <div class="calculator-content">
+                    <div class="calculator-items">
+                        <h3>Добавленные товары</h3>
+                        <div id="calculatorItems" class="calculator-items-list">
+                            <p class="empty-message">Добавьте товары в калькулятор</p>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-summary">
+                        <div class="summary-row">
+                            <span>Стоимость товаров:</span>
+                            <span id="calcProductTotal">0 ₸</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Доставка:</span>
+                            <select id="calcDeliveryType">
+                                <option value="0">Самовывоз (бесплатно)</option>
+                                <option value="1000">Доставка по городу (+1000 ₸)</option>
+                                <option value="1500">Доставка за город (+1500 ₸)</option>
+                            </select>
+                        </div>
+                        <div class="summary-row">
+                            <span>Скидка при заказе от 15000 ₸:</span>
+                            <span id="calcDiscount">0 ₸</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Итого к оплате:</span>
+                            <span id="calcFinalTotal">0 ₸</span>
+                        </div>
+                        <div class="calculator-actions">
+                            <button class="btn btn-primary" onclick="orderFromCalculator()">Оформить заказ</button>
+                            <button class="btn btn-outline" onclick="clearCalculator()">Очистить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=40&width=40" alt="Логотип">
+                        <span>ЭкоФерма KZ</span>
+                    </div>
+                    <p>Свежие фермерские бройлеры с доставкой по Алматы</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                    <a href="https://wa.me/77771234567" class="whatsapp-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ЭкоФерма KZ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2>Оформить заказ</h2>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Ваше имя *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Телефон *</label>
+                        <input type="tel" id="customerPhone" required placeholder="+7 (777) 123-45-67">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productType">Тип продукта *</label>
+                    <select id="productType" required>
+                        <option value="">Выберите продукт</option>
+                        <option value="Живые бройлеры" data-price="1750">Живые бройлеры - 1750 ₸/кг</option>
+                        <option value="Тушки бройлеров" data-price="1900">Тушки - 1900 ₸/кг</option>
+                        <option value="Разделанные части" data-price="2000">Разделанные части - 2000 ₸/кг</option>
+                        <option value="Филе грудки" data-price="2200">Филе грудки - 2200 ₸/кг</option>
+                        <option value="Бедра и голени" data-price="1600">Бедра и голени - 1600 ₸/кг</option>
+                        <option value="Крылья" data-price="1200">Крылья - 1200 ₸/кг</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Количество (кг) *</label>
+                        <input type="number" id="quantity" min="3" step="0.5" required>
+                        <small>Минимальный заказ: 3 кг</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderTotal">Стоимость</label>
+                        <input type="text" id="orderTotal" readonly class="total-field">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deliveryType">Способ получения *</label>
+                    <select id="deliveryType" required>
+                        <option value="">Выберите способ</option>
+                        <option value="delivery">Доставка (+1000 ₸)</option>
+                        <option value="pickup">Самовывоз (бесплатно)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="addressGroup" style="display: none;">
+                    <label for="deliveryAddress">Адрес доставки *</label>
+                    <textarea id="deliveryAddress" rows="2" placeholder="Укажите точный адрес доставки"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Способ оплаты *</label>
+                    <select id="paymentMethod" required>
+                        <option value="">Выберите способ оплаты</option>
+                        <option value="cash">Наличными при получении</option>
+                        <option value="card">Картой при получении</option>
+                        <option value="kaspi">Kaspi Pay</option>
+                        <option value="transfer">Банковский перевод</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="orderNotes">Комментарий к заказу</label>
+                    <textarea id="orderNotes" rows="2" placeholder="Дополнительные пожелания или вопросы"></textarea>
+                </div>
+                
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Стоимость товара:</span>
+                        <span id="productCost">0 ₸</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Доставка:</span>
+                        <span id="deliveryCost">0 ₸</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Итого к оплате:</span>
+                        <span id="finalTotal">0 ₸</span>
+                    </div>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary btn-large">Отправить заказ</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content image-modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <div class="slider">
+                <div class="slider-container">
+                    <img id="sliderImage" src="/placeholder.svg" alt="">
+                    <button class="slider-btn prev" onclick="prevImage()">❮</button>
+                    <button class="slider-btn next" onclick="nextImage()">❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>

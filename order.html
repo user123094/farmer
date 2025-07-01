@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказать - Фермерские бройлеры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/placeholder.svg?height=50&width=50" alt="Логотип фермы">
+                    <span>ЭкоФерма KZ</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html" class="active">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <div class="header-phone">
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Оформить заказ</h1>
+            <p>Заполните форму или свяжитесь с нами любым удобным способом</p>
+        </div>
+    </section>
+
+    <!-- Order Page -->
+    <section class="order-page">
+        <div class="container">
+            <div class="order-content">
+                <!-- Order Form -->
+                <div class="order-form-section">
+                    <h2>Форма заказа</h2>
+                    <form id="mainOrderForm" class="order-form">
+                        <div class="form-section">
+                            <h3>Контактная информация</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="orderCustomerName">Ваше имя *</label>
+                                    <input type="text" id="orderCustomerName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderCustomerPhone">Телефон *</label>
+                                    <input type="tel" id="orderCustomerPhone" required placeholder="+7 (777) 123-45-67">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderCustomerEmail">Email (необязательно)</label>
+                                <input type="email" id="orderCustomerEmail" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Детали заказа</h3>
+                            <div id="orderItems">
+                                <div class="order-item">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Тип продукта *</label>
+                                            <select class="product-select" required>
+                                                <option value="">Выберите продукт</option>
+                                                <option value="Живые бройлеры" data-price="1750">Живые бройлеры - 1750 ₸/кг</option>
+                                                <option value="Тушки бройлеров" data-price="1900">Тушки - 1900 ₸/кг</option>
+                                                <option value="Разделанные части" data-price="2000">Разделанные части - 2000 ₸/кг</option>
+                                                <option value="Филе грудки" data-price="2200">Филе грудки - 2200 ₸/кг</option>
+                                                <option value="Бедра и голени" data-price="1600">Бедра и голени - 1600 ₸/кг</option>
+                                                <option value="Крылья" data-price="1200">Крылья - 1200 ₸/кг</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Количество (кг) *</label>
+                                            <input type="number" class="quantity-input" min="1" step="0.5" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Стоимость</label>
+                                            <input type="text" class="item-total" readonly>
+                                        </div>
+                                        <button type="button" class="btn btn-remove" onclick="removeOrderItem(this)" style="display: none;">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline" onclick="addOrderItem()">+ Добавить товар</button>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Доставка и оплата</h3>
+                            <div class="form-group">
+                                <label for="orderDeliveryType">Способ получения *</label>
+                                <select id="orderDeliveryType" required>
+                                    <option value="">Выберите способ</option>
+                                    <option value="pickup">Самовывоз (бесплатно)</option>
+                                    <option value="delivery-city">Доставка по городу (+1000 ₸)</option>
+                                    <option value="delivery-suburb">Доставка за город (+1500 ₸)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="orderAddressGroup" style="display: none;">
+                                <label for="orderDeliveryAddress">Адрес доставки *</label>
+                                <textarea id="orderDeliveryAddress" rows="3" placeholder="Укажите точный адрес доставки с ориентирами"></textarea>
+                            </div>
+                            
+                            <div class="form-group" id="pickupInfo" style="display: none;">
+                                <div class="info-box">
+                                    <h4>Адрес самовывоза:</h4>
+                                    <p>г. Алматы, пос. Южный, ул. Фермерская, 15</p>
+                                    <p><strong>Время работы:</strong> Пн-Вс: 8:00 - 20:00</p>
+                                    <p><strong>Телефон:</strong> +7 (777) 123-45-67</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="orderPaymentMethod">Способ оплаты *</label>
+                                    <select id="orderPaymentMethod" required>
+                                        <option value="">Выберите способ оплаты</option>
+                                        <option value="cash">Наличными при получении</option>
+                                        <option value="card">Картой при получении</option>
+                                        <option value="kaspi">Kaspi Pay</option>
+                                        <option value="transfer">Банковский перевод</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderDeliveryDate">Желаемая дата *</label>
+                                    <input type="date" id="orderDeliveryDate" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="orderDeliveryTime">Желаемое время</label>
+                                <select id="orderDeliveryTime">
+                                    <option value="">Любое время</option>
+                                    <option value="morning">Утром (9:00 - 12:00)</option>
+                                    <option value="afternoon">Днем (12:00 - 16:00)</option>
+                                    <option value="evening">Вечером (16:00 - 20:00)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Дополнительная информация</h3>
+                            <div class="form-group">
+                                <label for="orderNotes">Комментарий к заказу</label>
+                                <textarea id="orderNotes" rows="3" placeholder="Дополнительные пожелания, особые требования к разделке, упаковке и т.д."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="orderAgreement" required>
+                                    <span class="checkmark"></span>
+                                    Я согласен с <a href="#" onclick="showTerms()">условиями заказа</a> и обработкой персональных данных
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="order-summary-section">
+                            <h3>Итого по заказу</h3>
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Стоимость товаров:</span>
+                                    <span id="orderProductTotal">0 ₸</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Доставка:</span>
+                                    <span id="orderDeliveryTotal">0 ₸</span>
+                                </div>
+                                <div class="summary-row discount-row" id="discountRow" style="display: none;">
+                                    <span>Скидка (при заказе от 15000 ₸):</span>
+                                    <span id="orderDiscount">-0 ₸</span>
+                                </div>
+                                <div class="summary-row total-row">
+                                    <span>Итого к оплате:</span>
+                                    <span id="orderFinalTotal">0 ₸</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">Отправить заказ</button>
+                            <button type="button" class="btn btn-outline" onclick="resetOrderForm()">Очистить форму</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Info -->
+                <div class="order-info-section">
+                    <div class="info-card">
+                        <h3>Как сделать заказ</h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Выберите товар</h4>
+                                    <p>Определитесь с видом и количеством бройлеров</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Заполните форму</h4>
+                                    <p>Укажите контакты и детали заказа</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Подтвердите заказ</h4>
+                                    <p>Мы свяжемся с вами для подтверждения</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Получите товар</h4>
+                                    <p>Доставка или самовывоз в удобное время</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Условия заказа</h3>
+                        <ul class="conditions-list">
+                            <li>Минимальный заказ: 3 кг</li>
+                            <li>Предзаказ за 1 день</li>
+                            <li>Доставка по городу: 1000 ₸</li>
+                            <li>Доставка за город: 1500 ₸</li>
+                            <li>Бесплатная доставка от 15000 ₸</li>
+                            <li>Скидка 5% при заказе от 15000 ₸</li>
+                            <li>Оплата любым удобным способом</li>
+                            <li>Гарантия свежести 100%</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Способы связи</h3>
+                        <div class="contact-methods">
+                            <a href="tel:+77771234567" class="contact-method">
+                                <span class="contact-icon">📞</span>
+                                <div>
+                                    <h4>Телефон</h4>
+                                    <p>+7 (777) 123-45-67</p>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/77771234567" class="contact-method">
+                                <span class="contact-icon">📱</span>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>Быстрый заказ</p>
+                                </div>
+                            </a>
+                            <a href="https://t.me/+77771234567" class="contact-method">
+                                <span class="contact-icon">✈️</span>
+                                <div>
+                                    <h4>Telegram</h4>
+                                    <p>Онлайн консультация</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Быстрый калькулятор</h3>
+                        <div class="quick-calculator">
+                            <select id="quickProductSelect">
+                                <option value="1750">Живые бройлеры - 1750 ₸/кг</option>
+                                <option value="1900">Тушки - 1900 ₸/кг</option>
+                                <option value="2000">Разделанные части - 2000 ₸/кг</option>
+                                <option value="2200">Филе грудки - 2200 ₸/кг</option>
+                                <option value="1600">Бедра и голени - 1600 ₸/кг</option>
+                                <option value="1200">Крылья - 1200 ₸/кг</option>
+                            </select>
+                            <input type="number" id="quickWeightInput" placeholder="Вес в кг" min="1" step="0.5">
+                            <div class="calc-result">
+                                <span>Стоимость: <strong id="quickTotalPrice">0 ₸</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=40&width=40" alt="Логотип">
+                        <span>ЭкоФерма KZ</span>
+                    </div>
+                    <p>Свежие фермерские бройлеры с доставкой по Алматы</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                    <a href="https://wa.me/77771234567" class="whatsapp-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ЭкоФерма KZ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTermsModal()">&times;</span>
+            <h2>Условия заказа</h2>
+            <div class="terms-content">
+                <h3>Общие условия</h3>
+                <ul>
+                    <li>Минимальный заказ составляет 3 кг</li>
+                    <li>Заказы принимаются с 8:00 до 20:00</li>
+                    <li>Предзаказ необходимо делать за 1 день</li>
+                    <li>Доставка осуществляется в день забоя</li>
+                </ul>
+                
+                <h3>Доставка</h3>
+                <ul>
+                    <li>Доставка по городу: 1000 ₸</li>
+                    <li>Доставка за город: 1500 ₸</li>
+                    <li>Бесплатная доставка при заказе от 15000 ₸</li>
+                    <li>Время доставки: с 9:00 до 20:00</li>
+                </ul>
+                
+                <h3>Оплата</h3>
+                <ul>
+                    <li>Наличными при получении</li>
+                    <li>Картой при получении</li>
+                    <li>Kaspi Pay</li>
+                    <li>Банковский перевод (предоплата)</li>
+                </ul>
+                
+                <h3>Гарантии</h3>
+                <ul>
+                    <li>100% гарантия свежести продукта</li>
+                    <li>Возврат денег при несоответствии качества</li>
+                    <li>Замена товара в случае брака</li>
+                </ul>
+            </div>
+            <button class="btn btn-primary" onclick="closeTermsModal()">Понятно</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>

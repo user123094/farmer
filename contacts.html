@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Фермерские бройлеры</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/placeholder.svg?height=50&width=50" alt="Логотип фермы">
+                    <span>ЭкоФерма KZ</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html" class="active">Контакты</a>
+                </nav>
+                <div class="header-phone">
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Контакты</h1>
+            <p>Свяжитесь с нами любым удобным способом</p>
+        </div>
+    </section>
+
+    <!-- Contacts Page -->
+    <section class="contacts-page">
+        <div class="container">
+            <div class="contacts-content">
+                <!-- Contact Info -->
+                <div class="contact-info-section">
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-icon">📞</div>
+                            <h3>Телефон</h3>
+                            <p><a href="tel:+77771234567">+7 (777) 123-45-67</a></p>
+                            <p><a href="tel:+77012345678">+7 (701) 234-56-78</a></p>
+                            <small>Ежедневно с 8:00 до 20:00</small>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">📱</div>
+                            <h3>Мессенджеры</h3>
+                            <p><a href="https://wa.me/77771234567">WhatsApp</a></p>
+                            <p><a href="https://t.me/+77771234567">Telegram</a></p>
+                            <small>Быстрые ответы 24/7</small>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@ecoferma.kz">info@ecoferma.kz</a></p>
+                            <p><a href="mailto:orders@ecoferma.kz">orders@ecoferma.kz</a></p>
+                            <small>Ответ в течение 2 часов</small>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <h3>Адрес фермы</h3>
+                            <p>г. Алматы, пос. Южный</p>
+                            <p>ул. Фермерская, 15</p>
+                            <small>Самовывоз по предварительной договоренности</small>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">🕒</div>
+                            <h3>Режим работы</h3>
+                            <p><strong>Прием заказов:</strong></p>
+                            <p>Пн-Вс: 8:00 - 20:00</p>
+                            <p><strong>Доставка:</strong></p>
+                            <p>Пн-Вс: 9:00 - 18:00</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">💳</div>
+                            <h3>Способы оплаты</h3>
+                            <p>• Наличными</p>
+                            <p>• Банковской картой</p>
+                            <p>• Kaspi Pay</p>
+                            <p>• Банковский перевод</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Form -->
+                    <div class="quick-contact-form">
+                        <h2>Быстрая связь</h2>
+                        <p>Оставьте сообщение и мы свяжемся с вами в течение 30 минут</p>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Ваше имя *</label>
+                                    <input type="text" id="contactName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Телефон *</label>
+                                    <input type="tel" id="contactPhone" required placeholder="+7 (777) 123-45-67">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Тема обращения</label>
+                                <select id="contactSubject">
+                                    <option value="">Выберите тему</option>
+                                    <option value="order">Вопрос по заказу</option>
+                                    <option value="delivery">Доставка</option>
+                                    <option value="quality">Качество продукции</option>
+                                    <option value="prices">Цены и скидки</option>
+                                    <option value="cooperation">Сотрудничество</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Сообщение *</label>
+                                <textarea id="contactMessage" rows="4" required placeholder="Опишите ваш вопрос или пожелание"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="contactAgreement" required>
+                                    <span class="checkmark"></span>
+                                    Согласен на обработку персональных данных
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Map and Location -->
+                <div class="location-section">
+                    <div class="map-container">
+                        <h2>Как нас найти</h2>
+                        <div class="map-wrapper">
+                            <iframe 
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3A123456789&amp;source=constructor" 
+                                width="100%" 
+                                height="400" 
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                        <div class="location-info">
+                            <h3>Адрес фермы</h3>
+                            <p><strong>г. Алматы, пос. Южный, ул. Фермерская, 15</strong></p>
+                            <p>Ориентиры: рядом с автозаправкой "KazMunayGas", после поворота направо</p>
+                            
+                            <h3>Как добраться</h3>
+                            <div class="directions">
+                                <div class="direction-item">
+                                    <strong>На автомобиле:</strong>
+                                    <p>Из центра города по проспекту Аль-Фараби в сторону пос. Южный, поворот направо после АЗС</p>
+                                </div>
+                                <div class="direction-item">
+                                    <strong>На общественном транспорте:</strong>
+                                    <p>Автобус №85 до остановки "Южный поселок", далее 5 минут пешком</p>
+                                </div>
+                                <div class="direction-item">
+                                    <strong>На такси:</strong>
+                                    <p>Укажите адрес: пос. Южный, ул. Фермерская, 15</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Zones -->
+                    <div class="delivery-zones">
+                        <h2>Зоны доставки</h2>
+                        <div class="zones-grid">
+                            <div class="zone-card">
+                                <h3>Бесплатная доставка</h3>
+                                <p>При заказе от 15000 ₸</p>
+                                <ul>
+                                    <li>Весь Алматы</li>
+                                    <li>Ближайшие поселки</li>
+                                </ul>
+                            </div>
+                            <div class="zone-card">
+                                <h3>Доставка 1000 ₸</h3>
+                                <p>Центральные районы</p>
+                                <ul>
+                                    <li>Алмалинский район</li>
+                                    <li>Медеуский район</li>
+                                    <li>Бостандыкский район</li>
+                                    <li>Ауэзовский район</li>
+                                </ul>
+                            </div>
+                            <div class="zone-card">
+                                <h3>Доставка 1500 ₸</h3>
+                                <p>Отдаленные районы</p>
+                                <ul>
+                                    <li>Наурызбайский район</li>
+                                    <li>Турксибский район</li>
+                                    <li>Жетысуский район</li>
+                                    <li>Алатауский район</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Часто задаваемые вопросы</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>Как быстро вы доставляете?</h3>
+                        <p>Доставка осуществляется в день заказа. Время доставки: с 9:00 до 18:00. Точное время согласовываем с клиентом.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Можно ли заказать на завтра?</h3>
+                        <p>Да, мы принимаем заказы на следующий день до 18:00 текущего дня. Для срочных заказов звоните по телефону.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Какой минимальный заказ?</h3>
+                        <p>Минимальный заказ составляет 3 кг. Это связано с особенностями доставки и обработки заказов.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Есть ли скидки при больших заказах?</h3>
+                        <p>Да, при заказе от 15000 ₸ предоставляется скидка 5% и бесплатная доставка по городу.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Можно ли посмотреть ферму?</h3>
+                        <p>Конечно! Мы приглашаем клиентов посетить нашу ферму. Предварительно согласуйте визит по телефону.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Какие документы у вас есть?</h3>
+                        <p>У нас есть все необходимые сертификаты качества, ветеринарные справки и разрешения на деятельность.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <img src="/placeholder.svg?height=40&width=40" alt="Логотип">
+                        <span>ЭкоФерма KZ</span>
+                    </div>
+                    <p>Свежие фермерские бройлеры с доставкой по Алматы</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="contacts.html">Контакты</a>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <a href="tel:+77771234567">+7 (777) 123-45-67</a>
+                    <a href="https://wa.me/77771234567" class="whatsapp-link">WhatsApp</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ЭкоФерма KZ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/contacts.js"></script>
+</body>
+</html>
