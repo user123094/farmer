@@ -13,7 +13,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="./image/logo_resized_70x70.png?height=50&width=50" alt="Логотип фермы">
+                    <img src="/image/logo_resized_70x70.png?height=50&width=50" alt="Логотип фермы">
                     <span>ЭкоФерма KZ</span>
                 </div>
                 <nav class="nav">
@@ -51,16 +51,16 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="orderCustomerName">Ваше имя *</label>
-                                    <input type="text" id="orderCustomerName" required>
+                                    <input type="text" id="orderCustomerName" name="Имя" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="orderCustomerPhone">Телефон *</label>
-                                    <input type="tel" id="orderCustomerPhone" required placeholder="+7 (777) 123-45-67">
+                                    <input type="tel" id="orderCustomerPhone" name="Телефон" required placeholder="+7 (777) 123-45-67">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="orderCustomerEmail">Email (необязательно)</label>
-                                <input type="email" id="orderCustomerEmail" placeholder="your@email.com">
+                                <input type="email" id="orderCustomerEmail" name="Email" placeholder="your@email.com">
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label>Тип продукта *</label>
-                                            <select class="product-select" required>
+                                            <select class="product-select" name="Продукт[]" required>
                                                 <option value="">Выберите продукт</option>
                                                 <option value="Живые бройлеры" data-price="1750">Живые бройлеры - 1750 ₸/кг</option>
                                                 <option value="Тушки бройлеров" data-price="1900">Тушки - 1900 ₸/кг</option>
@@ -83,11 +83,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Количество (кг) *</label>
-                                            <input type="number" class="quantity-input" min="1" step="0.5" required>
+                                            <input type="number" class="quantity-input" name="Количество[]" min="1" step="0.5" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Стоимость</label>
-                                            <input type="text" class="item-total" readonly>
+                                            <input type="text" class="item-total" name="Стоимость[]" readonly>
                                         </div>
                                         <button type="button" class="btn btn-remove" onclick="removeOrderItem(this)" style="display: none;">×</button>
                                     </div>
@@ -100,7 +100,7 @@
                             <h3>Доставка и оплата</h3>
                             <div class="form-group">
                                 <label for="orderDeliveryType">Способ получения *</label>
-                                <select id="orderDeliveryType" required>
+                                <select id="orderDeliveryType" name="Тип доставки" required>
                                     <option value="">Выберите способ</option>
                                     <option value="pickup">Самовывоз (бесплатно)</option>
                                     <option value="delivery-city">Доставка по городу (+1000 ₸)</option>
@@ -110,7 +110,7 @@
                             
                             <div class="form-group" id="orderAddressGroup" style="display: none;">
                                 <label for="orderDeliveryAddress">Адрес доставки *</label>
-                                <textarea id="orderDeliveryAddress" rows="3" placeholder="Укажите точный адрес доставки с ориентирами"></textarea>
+                                <textarea id="orderDeliveryAddress" name="Адрес доставки" rows="3" placeholder="Укажите точный адрес доставки с ориентирами"></textarea>
                             </div>
                             
                             <div class="form-group" id="pickupInfo" style="display: none;">
